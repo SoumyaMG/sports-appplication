@@ -45,6 +45,7 @@ class Login extends React.Component{
                     //console.log(response.data)
                     localStorage.setItem('userAuth', response.data.token)
                     this.props.history.push('/')
+                    window.location.reload()
                 }
                 else{
                     alert('invalid credentials')
