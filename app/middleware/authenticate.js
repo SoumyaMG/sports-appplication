@@ -14,7 +14,7 @@ const authentication=function(req,res,next){
             }
         })
         .catch((err)=>{
-            res.status('401').send(err)
+            res.status('404').send(err)
         })
 }
 

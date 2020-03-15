@@ -32,23 +32,27 @@ class Login extends React.Component{
             password:this.state.password
         }
         console.log(formData)
-        axios.post('/users/login',formData)
-            .then((response)=>{
+        axios.post('/users/login', formData)
+            .then((response) => {
+                //console.log('resolve', response.data)
                 if (response.data.hasOwnProperty('errors')) {
+                     //console.log(response.data)
+                    this.setState({
+                        errMsg: response.data.errors
+                    })
+                }
+                else if(response.data.hasOwnProperty('token')){
                     //console.log(response.data)
-                   this.setState({
-                       errMsg: response.data.errors
-                   })
-               }
-               else {
-                   //console.log(response.data)
-                   localStorage.setItem('userAuth', response.data.token)
-                   this.props.history.push('/')
-                   window.location.reload()
-               }
+                    localStorage.setItem('userAuth', response.data.token)
+                    this.props.history.push('/')
+                }
+                else{
+                    alert('invalid credentials')
+                    this.props.history.push('/')
+                }
             })
-            .catch((err)=>{
-                alert(err)
+            .catch((err) => {
+                console.log('reject', err)
             })
     }
 
