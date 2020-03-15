@@ -47,6 +47,9 @@ class Login extends React.Component{
                    window.location.reload()
                }
             })
+            .catch((err)=>{
+                alert(err)
+            })
     }
 
     render()
