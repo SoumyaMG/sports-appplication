@@ -40,6 +40,7 @@ class List extends React.Component{
                     this.props.history.push('/players/new')
                 }}>Add new Player</button> }
                 <br/><br/>
+                {console.log(this.props.players)}
                 <table className="table">
                     <thead>
                         <tr>

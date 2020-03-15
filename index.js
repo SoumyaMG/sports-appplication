@@ -10,11 +10,11 @@ const port = process.env.PORT || 3005;
 
 app.use(express.json())
 app.use(cors())
+app.use('/',router)
 app.use(express.static(path.join(__dirname,"client/build"))) 
 app.get("*",(req,res) => { 
     res.sendFile(path.join(__dirname + "/client/build/index.html")) 
 }) 
-app.use('/',router)
 app.listen(port,function(){
     console.log('listening to the port... '+port)
 })

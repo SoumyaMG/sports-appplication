@@ -14,14 +14,14 @@ function Compare(props){
                     </div>
                 ):(
                     <div>
-                            <table border="border">
+                            <table class="table">
                         <thead>
                             <tr>
-                                <th>Statistics</th>
+                                <th scope="col">Statistics</th>
                                 {
                                     props.players_to_compare.map((player)=>{
                                         
-                                        return <th key={player._id}>{player.name}</th>
+                                        return <th scope="col" key={player._id}>{player.name}</th>
                                     })   
                                 }
                             </tr>
@@ -33,7 +33,7 @@ function Compare(props){
                                     {
                                         props.players_to_compare.map((player)=>{
                                         return (
-                                            <td key={player._id}>{player.stats[stat]}</td>
+                                            <td scope="row" key={player._id}>{player.stats[stat]}</td>
                                         )
                                     })}
                                 </tr>
@@ -41,7 +41,7 @@ function Compare(props){
                         }
                         </tbody>
                     </table><br/>
-                    <button onClick={()=>{
+                    <button type="button" className="btn btn-outline-primary" onClick={()=>{
                         window.location.reload()
                         props.history.push('/')
                     }}>Back</button>

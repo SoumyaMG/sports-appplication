@@ -6,6 +6,9 @@ export const startListPlayers=()=>{
         .then((response)=>{
             dispatch(listPlayers(response.data))
         })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 }
 
